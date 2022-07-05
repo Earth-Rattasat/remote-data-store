@@ -1,0 +1,38 @@
+version: '3'
+
+services: 
+  backend: 
+    build: 
+      dockerfile: Dockerfile
+      context: .
+    container_name: backend
+    command: 'yarn dev'
+    restart: always
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - '5000:5000'
+    env_file:
+      - .docker.env
+    networks:
+      - data-store-backend
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    restart: always
+    container_name: postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - '54320:5432'
+    volumes:
+      - data-store-postgres-db:/var/lib/postgresql/data
+    networks:
+      - data-store-backend
+volumes:
+  data-store-postgres-db:
+networks:
+  data-store-backend:
