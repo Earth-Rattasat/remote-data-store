@@ -2,7 +2,7 @@
   "name": "remote-data-store",
   "version": "0.0.1",
   "description": "",
-  "author": "",
+  "author": "Rattasat Sittimongkol",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -27,15 +27,24 @@
   "dependencies": {
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/platform-socket.io": "^8.4.7",
+    "@nestjs/swagger": "^5.2.1",
     "@nestjs/typeorm": "^8.1.4",
+    "@nestjs/websockets": "^8.4.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
     "dotenv": "^16.0.1",
+    "fastify-swagger": "^5.2.0",
     "luxon": "^2.4.0",
     "path": "^0.12.7",
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
+    "socket.io": "^4.5.1",
+    "swagger-ui-express": "^4.4.0",
     "typeorm": "^0.3.7"
   },
   "devDependencies": {
