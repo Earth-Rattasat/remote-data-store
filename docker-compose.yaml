@@ -6,10 +6,7 @@ services:
       dockerfile: Dockerfile
       context: .
     container_name: backend
-    command: 'yarn dev'
     restart: always
-    volumes:
-      - .:/usr/src/app
     ports:
       - '5000:5000'
     env_file:
@@ -22,6 +19,8 @@ services:
     image: postgres
     restart: always
     container_name: postgres
+    env_file:
+      - .docker.env
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
